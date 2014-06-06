@@ -18,7 +18,12 @@ public class BasisImprovedNamingStrategy extends ImprovedNamingStrategy {
 	}
 	
 	@Override
-	public String tableName(String tableName) {
-		return "T_" + addUnderscores(tableName);
+	public String classToTableName(String className) {
+		return "T_" + tableName(className);
+	}
+
+	@Override
+	public String propertyToColumnName(String propertyName) {
+		return addUnderscores(propertyName).toUpperCase();
 	}
 }
